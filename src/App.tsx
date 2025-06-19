@@ -9,6 +9,7 @@ import HelpPage from './components/HelpPage';
 import { HelpCircle } from 'lucide-react';
 import CalendarSyncChat from './components/CalendarSyncChat';
 import TicketStatusChat from './components/TicketStatusChat';
+import KnowledgeBaseArticleChat from './components/KnowledgeBaseArticleChat';
 
 export type AppState =
   | 'landing'
@@ -18,7 +19,8 @@ export type AppState =
   | 'screen-share'
   | 'phishing-analysis'
   | 'calendar-sync-chat'
-  | 'ticket-status-chat';
+  | 'ticket-status-chat'
+  | 'kb-article-chat';
 
 function App() {
   const [appState, setAppState] = useState<AppState>('landing');
@@ -59,6 +61,9 @@ function App() {
     } else if (starter === 'ticket-status') {
       setAppState('ticket-status-chat');
       return;
+    } else if (starter === 'kb-article') {
+      setAppState('kb-article-chat');
+      return;
     } else {
       setAppState('chat');
     }
@@ -85,6 +90,8 @@ function App() {
     centerContent = <CalendarSyncChat />;
   } else if (appState === 'ticket-status-chat') {
     centerContent = <TicketStatusChat />;
+  } else if (appState === 'kb-article-chat') {
+    centerContent = <KnowledgeBaseArticleChat />;
   }
 
   return (

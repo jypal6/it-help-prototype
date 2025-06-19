@@ -59,6 +59,14 @@ const conversationStarters: ConversationStarter[] = [
     highlight: true
   },
   {
+    id: 'kb-article',
+    title: 'Create or Update a KB Article',
+    description: 'Use a resolved ticket to create or improve documentation',
+    icon: ClipboardList,
+    color: 'bg-indigo-100 text-indigo-600',
+    highlight: true
+  },
+  {
     id: 'incident-management',
     title: 'Troubleshoot an IT issue',
     description: 'Share a ticket link or description for quick resolution assistance.',
@@ -89,7 +97,8 @@ const hoverCardContent: Record<string, string> = {
   'camera-issue': 'Self-Serve Scenario: Empower employees to troubleshoot IT issues quickly and intuitively using multi-modal input — reducing the need to type, minimizing frustration, and improving time-to-resolution.',
   'incident-management': "Ticket Resolution Support for IT Agents: Tier 1 agents can rely on Copilot to surface relevant knowledge articles, similar past tickets, and contextual insights from Teams or Outlook — enabling faster, more informed resolutions. The agent also assists in drafting customer updates and keeping the ticket status current.",
   'summarize-ticket': "Escalation Handling for Tier 3 Agents: When a ticket is escalated, Tier 3 agents can use Copilot to quickly catch up on the full ticket history, understand what's been tried, and determine next steps. The agent also supports coordinating directly with the end user — including scheduling follow-up meetings when needed.",
-  'phishing-analysis': "Reporting for Tier 3 Agents: Copilot helps Tier 3 agents identify patterns across escalated issues by generating ad hoc reports and summaries. Using a multi-agent framework, it can delegate tasks — such as trend analysis or report generation — to specialized agents, accelerating root cause discovery and improving team awareness."
+  'phishing-analysis': "Reporting for Tier 3 Agents: Copilot helps Tier 3 agents identify patterns across escalated issues by generating ad hoc reports and summaries. Using a multi-agent framework, it can delegate tasks — such as trend analysis or report generation — to specialized agents, accelerating root cause discovery and improving team awareness.",
+  'kb-article': "Knowledge Base Management for Tier 3 Agents: This tool helps experienced support agents turn resolved tickets into lasting documentation. Using a conversational approach, it extracts issue details, identifies relevant KB articles to update, and drafts structured content — improving future issue resolution times."
 };
 
 const LandingPage: React.FC<LandingPageProps> = ({ onStarterSelect, centerContent, onNavLanding }) => {
