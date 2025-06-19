@@ -30,52 +30,65 @@ const HelpPage: React.FC<HelpPageProps> = ({ onClose }) => {
             >
               <X size={24} />
             </button>
-          </div>
-          
+          </div>          
           <div className="prose max-w-none">
-            <h1 className="text-xl font-bold text-blue-700 mb-2">🧪 Agent Prototype – Internal Preview</h1>
+            <h1 className="text-xl font-bold text-blue-700 mb-2">� IT Help Desk Copilot – Prototype Overview</h1>
             
-            <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4">🎯 Purpose</h2>
+            <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4">🎯 Purpose of the Prototype</h2>
             <p className="mb-4">
-              This prototype demonstrates how an AI-powered assistant can enhance IT support by addressing two core needs:
+              This prototype demonstrates how a conversational AI Copilot can assist both employees and IT agents in resolving IT-related issues more efficiently, using natural language interactions and smart automation. It showcases a multi-modal assistant interface that is context-aware, task-focused, and embedded within a scalable help desk workflow.
             </p>
-            <ul className="list-disc pl-5 space-y-2 mb-6">
-              <li>Enabling employees to self-resolve common issues quickly</li>
-              <li>Supporting Tier 1 IT agents with intelligent, context-aware guidance to resolve tickets efficiently</li>
-            </ul>
-            <p>
-              It integrates signals from past tickets, knowledge base articles, and Microsoft 365 tools (like Outlook and Teams) to drive smarter, faster support.
+            <p className="mb-4 text-sm italic bg-gray-100 p-3 rounded-md">
+              Note: This is an indicative design created for internal demonstration purposes. It does not conform to the official Microsoft Copilot design system or UX guidelines and should not be used as a reference for production implementations.
             </p>
             
-            <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4">👤 Key Personas</h2>
+            <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4">👥 Who It's For</h2>
+            <ul className="list-disc pl-5 space-y-2 mb-6">
+              <li>Employees seeking help with common IT tasks like troubleshooting, raising requests, or checking ticket status.</li>
+              <li>IT Agents (Tier 1 & Tier 3) looking to reduce manual effort in resolving tickets, drafting responses, updating documentation, and analyzing trends.</li>
+            </ul>
+            
+            <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4">� Business Value</h2>
             <div className="overflow-x-auto">
               <table className="min-w-full border-collapse border border-gray-300 mb-6">
                 <thead>
                   <tr className="bg-gray-100">
-                    <th className="border border-gray-300 px-4 py-2 text-left">Persona</th>
-                    <th className="border border-gray-300 px-4 py-2 text-left">Role in the Workflow</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Benefit Area</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-medium">End User (Employee)</td>
-                    <td className="border border-gray-300 px-4 py-2">Needs quick, guided help for issues like VPN setup, access requests, and troubleshooting.</td>
+                    <td className="border border-gray-300 px-4 py-2 font-medium">✅ Reduced Ticket Volume</td>
+                    <td className="border border-gray-300 px-4 py-2">Enables self-service and contextual troubleshooting to deflect common issues.</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-medium">Tier 1 IT Agent</td>
-                    <td className="border border-gray-300 px-4 py-2">Handles high ticket volumes; benefits from faster triage, resolution suggestions, and fewer escalations.</td>
+                    <td className="border border-gray-300 px-4 py-2 font-medium">⚡ Faster Resolution Time</td>
+                    <td className="border border-gray-300 px-4 py-2">Agents get instant access to relevant KBs, past cases, and communications.</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2 font-medium">📈 Improved Documentation</td>
+                    <td className="border border-gray-300 px-4 py-2">Tier 3 agents can easily turn ticket insights into KB updates.</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2 font-medium">📊 Smarter Operations</td>
+                    <td className="border border-gray-300 px-4 py-2">Built-in reporting surfaces issue trends and patterns to inform IT strategy.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             
-            <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4">💡 Business Value</h2>
-            <ul className="list-disc pl-5 space-y-3">
-              <li><span className="font-medium">Faster Resolution:</span> Reduces time spent on repetitive tickets by both users and agents</li>
-              <li><span className="font-medium">Smarter Triage:</span> Surfaces relevant prior case data and M365-based peer input to guide agent response</li>
-              <li><span className="font-medium">Reduced Load:</span> Shifts routine issues to self-service, freeing IT teams for higher-value tasks</li>
-              <li><span className="font-medium">Better Experience:</span> Offers a human-like, step-by-step guidance model that feels like working with a colleague</li>
-            </ul>
+            <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4">� How to Use This Prototype</h2>
+            <ol className="list-decimal pl-5 space-y-2 mb-6">
+              <li>Select a tile that represents your goal (e.g., troubleshoot, create a ticket, check status).</li>
+              <li>The Copilot will guide you through a chat-based interaction tailored to your context.</li>
+              <li>Suggestion prompts, summaries, and smart inputs help reduce effort and speed up action.</li>
+            </ol>
+            
+            <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-4">🧾 Share feedback with</h2>
+            <p className="mb-4">
+              Jyoti Pal, Anandhi Hariharan
+            </p>
           </div>
         </div>
         
