@@ -10,17 +10,18 @@ import { HelpCircle } from 'lucide-react';
 import CalendarSyncChat from './components/CalendarSyncChat';
 import TicketStatusChat from './components/TicketStatusChat';
 import KnowledgeBaseArticleChat from './components/KnowledgeBaseArticleChat';
+import NewScenarioChat from './components/NewScenarioChat';
 
 export type AppState =
   | 'landing'
   | 'chat'
   | 'ticket-support-chat'
   | 'ticket-summary-chat'
-  | 'screen-share'
-  | 'phishing-analysis'
+  | 'screen-share'  | 'phishing-analysis'
   | 'calendar-sync-chat'
   | 'ticket-status-chat'
-  | 'kb-article-chat';
+  | 'kb-article-chat'
+  | 'new-scenario-chat';
 
 function App() {
   const [appState, setAppState] = useState<AppState>('landing');
@@ -50,8 +51,7 @@ function App() {
       setTicketPrompt('Please paste the ticket link or describe the issue to troubleshoot:');
       setAppState('ticket-support-chat');
     } else if (starter === 'summarize-ticket') {
-      setAppState('ticket-summary-chat');
-    } else if (starter === 'screen-share') {
+      setAppState('ticket-summary-chat');    } else if (starter === 'screen-share') {
       setAppState('screen-share');
     } else if (starter === 'phishing-analysis') {
       setAppState('phishing-analysis');
@@ -63,6 +63,9 @@ function App() {
       return;
     } else if (starter === 'kb-article') {
       setAppState('kb-article-chat');
+      return;
+    } else if (starter === 'new-scenario') {
+      setAppState('new-scenario-chat');
       return;
     } else {
       setAppState('chat');
@@ -85,13 +88,14 @@ function App() {
   } else if (appState === 'phishing-analysis') {
     centerContent = <PhishingAnalysisChat initialPrompt={
       'Generate a report on the recent phising attacks that happened in the past 2 weeks. Call out the key insights.'
-    } />;
-  } else if (appState === 'calendar-sync-chat') {
+    } />;  } else if (appState === 'calendar-sync-chat') {
     centerContent = <CalendarSyncChat />;
   } else if (appState === 'ticket-status-chat') {
     centerContent = <TicketStatusChat />;
   } else if (appState === 'kb-article-chat') {
     centerContent = <KnowledgeBaseArticleChat />;
+  } else if (appState === 'new-scenario-chat') {
+    centerContent = <NewScenarioChat />;
   }
 
   return (
