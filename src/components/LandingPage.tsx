@@ -2,20 +2,15 @@ import React from 'react';
 import {
   Smartphone,
   Shield,
-  Monitor,
-  Wifi,
-  UserCheck,
-  Key,
   AlertCircle,
   Search,
   ChevronDown,
-  HelpCircle,
   MessageCircle,
   Settings,
   MoreHorizontal,
   Plus,
-  Mic,
-  ClipboardList
+  ClipboardList,
+  Lock
 } from 'lucide-react';
 
 interface LandingPageProps {
@@ -33,19 +28,25 @@ interface ConversationStarter {
   highlight?: boolean;
 }
 
-const conversationStarters: ConversationStarter[] = [
-  {
+const conversationStarters: ConversationStarter[] = [  {
     id: 'camera-issue',
-    title: 'I am having trouble with Teams camera',
-    description: 'Troubleshoot and fix camera issues in Microsoft Teams.',
+    title: ' Fix an IT issue',
+    description: 'Get step-by-step help to solve common problems like Outlook or VPN.',
     icon: Smartphone,
     color: 'bg-blue-100 text-blue-600',
+    highlight: true
+  },  {
+    id: 'vpn-connect',
+    title: 'IT policy & how-to help',
+    description: 'Search for official company IT guidance.',
+    icon: Lock,
+    color: 'bg-green-100 text-green-600',
     highlight: true
   },
   {
     id: 'calendar-sync',
-    title: "My Calendar Isn't Syncing",
-    description: 'Troubleshoot Outlook calendar sync problems across devices.',
+    title: "Raise a support ticket",
+    description: 'Create a ticket with all necessary details if self-help doesn\'t work.',
     icon: Smartphone,
     color: 'bg-blue-100 text-blue-600',
     highlight: true
@@ -56,56 +57,46 @@ const conversationStarters: ConversationStarter[] = [
     description: 'Check the current status, progress, and next steps for your submitted IT support tickets.',
     icon: ClipboardList,
     color: 'bg-blue-100 text-blue-600',
-    highlight: true  },
-  {
-    id: 'kb-article',
-    title: 'Create or Update a KB Article',
-    description: 'Use a resolved ticket to create or improve documentation',
-    icon: ClipboardList,
-    color: 'bg-indigo-100 text-indigo-600',
-    highlight: true
-  },
-  {
-    id: 'new-scenario',
-    title: 'New Scenario Flow',
-    description: 'Explore our new IT support scenario with a step-by-step guided flow',
-    icon: Settings,
-    color: 'bg-yellow-100 text-yellow-600',
-    highlight: true
-  },
+    highlight: true  }, 
+    
   {
     id: 'incident-management',
-    title: 'Troubleshoot an IT issue',
-    description: 'Share a ticket link or description for quick resolution assistance.',
+    title: 'Resolve a ticket',
+    description: 'Share a ticket link or description for quick resolution assistance and drafting customer updates.',
     icon: AlertCircle,
     color: 'bg-green-100 text-green-600'
   },
   {
     id: 'summarize-ticket',
-    title: 'Summarize a ticket',
-    description: 'AI-assisted ticket analysis and summary for Tier 3 support agents.',
+    title: 'Review escalated ticket',
+    description: 'Get a quick summary ticket, of what’s been tried and what’s pending.',
     icon: ClipboardList,
     color: 'bg-purple-100 text-purple-600',
     highlight: true
   },
   {
     id: 'phishing-analysis',
-    title: 'Phishing Trend Analysis',
-    description: 'Generate reports on recent phishing-related incidents and trends.',
+    title: 'Generate issue trend report',
+    description: 'Spot patterns and generate insights across multiple tickets.',
     icon: Shield,
     color: 'bg-red-100 text-red-600',
+    highlight: true
+  }, {
+    id: 'kb-article',
+    title: 'Create or Update a KB Article',
+    description: 'Use a resolved ticket to create or improve documentation',
+    icon: ClipboardList,
+    color: 'bg-indigo-100 text-indigo-600',
     highlight: true
   }
 ];
 
-const hoverCardContent: Record<string, string> = {
-  'calendar-sync': "Ticket Creation Scenario: When self-serve isn't enough, employees can seamlessly raise an IT ticket — with Copilot automatically capturing all relevant context and details to help support agents diagnose and resolve the issue faster.",
-  'ticket-status': "Ticket Follow-Up Scenario: After raising a ticket, employees can easily track its status and request updates or changes — all through a natural conversation with the agent, without needing to navigate portals or send emails.",
-  'camera-issue': 'Self-Serve Scenario: Empower employees to troubleshoot IT issues quickly and intuitively using multi-modal input — reducing the need to type, minimizing frustration, and improving time-to-resolution.',
-  'incident-management': "Ticket Resolution Support for IT Agents: Tier 1 agents can rely on Copilot to surface relevant knowledge articles, similar past tickets, and contextual insights from Teams or Outlook — enabling faster, more informed resolutions. The agent also assists in drafting customer updates and keeping the ticket status current.",  'summarize-ticket': "Escalation Handling for Tier 3 Agents: When a ticket is escalated, Tier 3 agents can use Copilot to quickly catch up on the full ticket history, understand what's been tried, and determine next steps. The agent also supports coordinating directly with the end user — including scheduling follow-up meetings when needed.",
+const hoverCardContent: Record<string, string> = {  'calendar-sync': "Ticket Creation Scenario: When self-serve isn't enough, employees can seamlessly raise an IT ticket — with Copilot automatically capturing all relevant context and details to help support agents diagnose and resolve the issue faster.",
+  'ticket-status': "Ticket Follow-Up Scenario: After raising a ticket, employees can easily track its status and request updates or changes — all through a natural conversation with the agent, without needing to navigate portals or send emails.",  'camera-issue': 'Self-Serve Scenario: Empower employees to troubleshoot common IT issues quickly and intuitively with step-by-step guidance — reducing the need to submit formal tickets, minimizing frustration, and improving time-to-resolution for everyday problems.',
+  'vpn-connect': 'IT Policy & Knowledge Base: This scenario helps employees find official company policies and how-to documentation on IT topics. Users can search for guidance on security protocols, approved software, and standard procedures to ensure compliance and efficient use of company technology resources.','incident-management': "Ticket Resolution Support for IT Agents: Tier 1 agents can rely on Copilot to surface relevant knowledge articles, similar past tickets, and contextual insights from Teams or Outlook — enabling faster, more informed resolutions. The agent also assists in drafting customer updates and keeping the ticket status current.",
+  'summarize-ticket': "Escalation Handling for Tier 3 Agents: When a ticket is escalated, Tier 3 agents can use Copilot to quickly catch up on the full ticket history, understand what's been tried, and determine next steps. The agent also supports coordinating directly with the end user — including scheduling follow-up meetings when needed.",
   'phishing-analysis': "Reporting for Tier 3 Agents: Copilot helps Tier 3 agents identify patterns across escalated issues by generating ad hoc reports and summaries. Using a multi-agent framework, it can delegate tasks — such as trend analysis or report generation — to specialized agents, accelerating root cause discovery and improving team awareness.",
-  'kb-article': "Knowledge Base Management for Tier 3 Agents: This tool helps experienced support agents turn resolved tickets into lasting documentation. Using a conversational approach, it extracts issue details, identifies relevant KB articles to update, and drafts structured content — improving future issue resolution times.",
-  'new-scenario': "New Scenario Flow: This interactive workflow demonstrates our latest approach to IT support, guiding users through a structured conversation that collects information, analyzes the issue, and provides actionable recommendations. The step-by-step process showcases how complex IT scenarios can be handled with clarity and efficiency."
+  'kb-article': "Knowledge Base Management for Tier 3 Agents: This tool helps experienced support agents turn resolved tickets into lasting documentation. Using a conversational approach, it extracts issue details, identifies relevant KB articles to update, and drafts structured content — improving future issue resolution times."
 };
 
 const LandingPage: React.FC<LandingPageProps> = ({ onStarterSelect, centerContent, onNavLanding }) => {

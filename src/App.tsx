@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
 import ChatInterface from './components/ChatInterface';
 import TicketSupportChat from './components/TicketSupportChat';
@@ -11,6 +11,7 @@ import CalendarSyncChat from './components/CalendarSyncChat';
 import TicketStatusChat from './components/TicketStatusChat';
 import KnowledgeBaseArticleChat from './components/KnowledgeBaseArticleChat';
 import NewScenarioChat from './components/NewScenarioChat';
+import VPNConnectionChat from './components/VPNConnectionChat';
 
 export type AppState =
   | 'landing'
@@ -21,7 +22,8 @@ export type AppState =
   | 'calendar-sync-chat'
   | 'ticket-status-chat'
   | 'kb-article-chat'
-  | 'new-scenario-chat';
+  | 'new-scenario-chat'
+  | 'vpn-connection-chat';
 
 function App() {
   const [appState, setAppState] = useState<AppState>('landing');
@@ -63,9 +65,11 @@ function App() {
       return;
     } else if (starter === 'kb-article') {
       setAppState('kb-article-chat');
-      return;
-    } else if (starter === 'new-scenario') {
+      return;    } else if (starter === 'new-scenario') {
       setAppState('new-scenario-chat');
+      return;
+    } else if (starter === 'vpn-connect') {
+      setAppState('vpn-connection-chat');
       return;
     } else {
       setAppState('chat');
@@ -91,11 +95,12 @@ function App() {
     } />;  } else if (appState === 'calendar-sync-chat') {
     centerContent = <CalendarSyncChat />;
   } else if (appState === 'ticket-status-chat') {
-    centerContent = <TicketStatusChat />;
-  } else if (appState === 'kb-article-chat') {
+    centerContent = <TicketStatusChat />;  } else if (appState === 'kb-article-chat') {
     centerContent = <KnowledgeBaseArticleChat />;
   } else if (appState === 'new-scenario-chat') {
     centerContent = <NewScenarioChat />;
+  } else if (appState === 'vpn-connection-chat') {
+    centerContent = <VPNConnectionChat />;
   }
 
   return (
